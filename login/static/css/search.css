@@ -1,0 +1,90 @@
+body
+{
+    background: url("/static/img/psc9.png") ; /* 首先增加背景图 */
+    background-size: 100% auto; /* 设置背景的大小 */
+    background-repeat: no-repeat;/* 将背景设置为不重复显示 */
+    background-position: 0px -200px;
+    /*/background-color: rgb(244,246,249);/*/
+}
+h1
+{
+    color: white;
+    margin-top:20px;
+    font-family: "DFKai-SB";
+}
+h2
+{
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: "DFKai-SB";
+}
+#search .frame
+{
+    margin-left: 68px;
+    width: 200px;
+    height: 25px;
+    border-radius: 42px; /* 将按钮的左右边框设置为圆弧 */
+    background: #F9F0DA;
+    padding-left: 13px;
+}
+.pull-right.pagination-detail
+{
+    display:none;
+}
+#search .button1
+{
+    transform: translateX(-40px);
+    border: 0;
+    background: none;
+}
+/*/ 搜索按钮整体样式 /*/
+#search .button1 img
+{
+    height: 20px;
+    width: 20px;
+}
+/*/ 搜索图片调整 /*/
+#search .button2
+{
+    transform: translateX(-34px);
+    border: 0;
+    background: none;
+}
+/* 返回按钮整体样式 */
+#search .button2 img
+{
+    width: 25px;
+    height: 25px;
+}
+.main
+{
+    border: 1px solid blue;
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 25px;
+    background: #00000080;
+    border-radius: 30px; /*/ 框圆角 /*/
+    border-color: rgba(0,153,0,0.0);/*/ 透明 /*/
+    transition-property: all;
+    transition-duration: 1s;
+    padding: 20px 50px;
+}
+.ths
+{
+    font-size: 16px;
+    color: white;
+    font-family: 'DFKai-SB';
+}
+/*/ 列表表头设置 /*/
+.tds
+{
+    color: white;
+}
+/*/ 列表表栏设置 /*/
+.info img
+{
+    width: 26px;
+    height: 26px;
+}

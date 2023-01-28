@@ -1,0 +1,39 @@
+body
+{
+    background: url("/static/img/psc1.jpg") ; /* 首先增加背景图 */
+    background-size: 100% auto; /* 设置背景的大小 */
+    background-repeat: no-repeat;/* 将背景设置为不重复显示 */
+    background-position: 0px -50px;
+}
+#whole
+{
+    border: 1px solid blue;
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 15%;
+    background: #00000080;
+    border-radius: 30px; /*/ 框圆角 /*/
+    border-color: rgba(0,153,0,0.0);/*/ 透明 /*/
+    transition-property: all;
+    transition-duration: 1s;
+    padding: 20px 50px;
+}
+#whole .titles h2
+{
+    font-size: 40px;
+    font-family: "DFKai-SB";
+    color: white;
+}
+#whole .mains button
+{
+    border: 0; /* 取消按钮的边界 */
+    width: 105px; /* 设置合适的按钮的长和宽 */
+    height: 30px;
+    margin-top: 18px; /* 设置合适的上部外框的宽度，增加与上面的password框的距离 */
+    font-size: 18px; /* 修改按钮文字的大小 */
+    font-family: "DFKai-SB";
+    color: white; /* 修改按钮上文字的颜色 */
+    border-radius: 25px; /* 将按钮的左右边框设置为圆弧 */
+    background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%); /* 为按钮增加渐变颜色 */
+}

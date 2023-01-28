@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="/static/css/register.css"/>
+</head>
+<body>
+<div id="whole">
+    <div>
+        <h1>注册</h1>
+    </div>
+    <div class="signup">
+        <form action="/" method="post" onsubmit="return check()">
+            {% csrf_token %}
+            <div class="words">
+                <span>用户名</span>
+            </div>
+            <div class="item">
+                <img src="/static/img/user.svg" aria-hidden="true"/>
+                <input type="text" required="required" placeholder="请输入用户名" name="user_name" autofocus>
+            </div>
+            <div class="words">
+                <span>密码</span>
+            </div>
+            <div class="item">
+                <img src="/static/img/password.svg" aria-hidden="true"/>
+                <input type="password" required="required" placeholder="请输入密码（至少8位）" name="user_password" autofocus>
+            </div>
+            <input class="confirm" type="submit" style="margin-right:10px;" value="注册">
+            <button type="button" onclick="window.location.href = '/'">返回</button>
+        </form>
+    </div>
+</div>
+</body>
+<script>
+function check()
+{
+    var passwords = document.getElementsByName("user_password");
+    if(passwords[0].value.length < 8)
+    {
+        alert('密码过短，请重新输入！');
+        return false;
+    }
+    else
+    {
+        alert('注册成功！');
+        return true;
+    }
+}
+</script>
+</html>

@@ -1,0 +1,63 @@
+body
+{
+    background: url("/static/img/psc9.png") ; /* 首先增加背景图 */
+    background-size: 100% auto; /* 设置背景的大小 */
+    background-repeat: no-repeat;/* 将背景设置为不重复显示 */
+    background-position: 0px -200px;
+    /*/background-color: rgb(244,246,249);/*/
+}
+h1
+{
+    color: white;
+    margin-top:90px;
+    font-family: "DFKai-SB";
+}
+#adds
+{
+    border: 1px solid blue;
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 5px;
+    background: #00000080;
+    border-radius: 30px; /*/ 框圆角 /*/
+    border-color: rgba(0,153,0,0.0);/*/ 透明 /*/
+    transition-property: all;
+    transition-duration: 1s;
+    padding: 20px 50px;
+}
+.names
+{
+    display: inline-block;
+    margin-top: 17px;
+    margin-bottom: 5px;
+    font-size: 17px;
+    font-family: "DFKai-SB";
+    color: white;
+}
+.frame
+{
+    height: 19px;
+    width: 175px;
+    border-radius: 10px; /* 将按钮的左右边框设置为圆弧 */
+    background: #F9F0DA;
+    padding-left: 15px;
+}
+#adds .buttons
+{
+    background: none;
+    border: 0;
+}
+#adds .buttons .img1
+{
+    height: 30px;
+    width: 30px;
+}
+#adds .buttons .img2
+{
+    height: 30px;
+    width: 30px;
+    margin-left: 27px;
+    margin-top: 5px;
+    transform: translateX(1px);
+}

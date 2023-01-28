@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户主页</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/static/css/button.css"/>
+    <link rel="stylesheet" href="/static/css/index.css"/>
+</head>
+<body style="text-align: center">
+{% if request.session.msg == "" %}
+    <div id="error">
+        <div class="info">您还未登录!</div>
+        <a href="/login">
+            <button>返回</button>
+        </a>
+    </div>
+{% else %}
+    <div id="main">
+        <div class="user">
+        <form action="/index/" >
+            <div class="name">欢迎您！用户{{request.session.msg}}</div>
+            <input type="submit" name="logout" value="登出">
+        </form>
+        </div><br>
+    </div>
+    <div id="product">
+        <div class="search">
+            <form action="/index/search">
+                <input type="text" class="frame" required="required" placeholder="按名称搜索" name="search">
+                <button class="buttons">
+                    <img src="/static/img/search.svg"/>
+                </button>
+            </form>
+        </div>
+        <div>
+            <form action="/index/" method="post">
+                {% csrf_token %}
+                <h2 style="color: white; font-family: 'DFKai-SB'; margin-bottom: 3px; margin-bottom: 20px;">产品列表</h2>
+                {% if n2 == 0 %}
+                    <p style="color: white; font-family: 'DFKai-SB'; font-size: 17px;">现在还没有产品！</p>
+                {% else %}
+                    <table id="table" data-pagination-detail-h-align="right" data-toggle="table" data-pagination="true" data-pagination-loop="false" data-page-size="5" data-show-pagination-switch="false" data-classes="table">
+                        <thead>
+                            <tr>
+                                <th data-halign="center"><input type="checkbox" id="check"></th>
+                                <th data-field="id" data-halign="center" data-sortable="true" class="ths">ID</th>
+                                <th data-field="name" data-halign="center" class="ths">产品名称</th>
+                                <th data-field="info" data-halign="center" class="ths">详情</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in n1 %}
+                            <tr>
+                                <td><input type="checkbox" name="product" value={{i.id}}></td>
+                                <td data-field="id" class="tds">{{i.id}}</td>
+                                <td data-field="name" class="tds">{{i.name}}</td>
+                                <td data-field="info" class="tds">
+                                    <a class="info" onclick="alert('ID：{{i.id}}\n产品名称：{{i.name}}\n价格：{{i.price}} 元/斤\n备注：{{i.ps}}')">
+                                        <img src="/static/img/info.svg"/>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+                <div>
+                    <button type="button" class="btn-gradient purple mini" onclick="window.location.href = '/index/add'">添加产品</button>&nbsp;
+                    <input type="submit" class="btn-gradient purple mini" style="margin-left: 30px;margin-top:20px;" value="删除产品">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endif %}
+</body>
+<script type="text/javascript">
+		var isCheckAll = false;
+		function swapCheck() {
+			if (isCheckAll) {
+				$("input[type='checkbox']").each(function() {
+					this.checked = false;
+				});
+				isCheckAll = false;
+			} else {
+				$("input[type='checkbox']").each(function() {
+					this.checked = true;
+				});
+				isCheckAll = true;
+			}
+		}
+	</script>
+<script type="text/javascript">
+    if(window.history.replaceState)
+    {
+        window.history.replaceState(null,null,window.location.href);
+    }
+</script>
+<!--防止刷新时显示重复提交表单-->
+<script>
+    document.getElementById("check").onclick = function(){
+        var checked = document.getElementById("check").checked;
+        var checks = document.getElementsByName("product");
+        if(checked){
+            for(var i = 0; i < checks.length ;i++){
+                checks[i].checked = true;
+            }
+        }else{
+            for(var i = 0; i < checks.length ;i++){
+                checks[i].checked = false;
+            }
+        }
+    }
+</script>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap-table.min.js"></script>
+<script src="/static/js/bootstrap-table-zh-CN.min.js"></script>
+</html>

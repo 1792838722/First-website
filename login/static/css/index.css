@@ -1,0 +1,138 @@
+body
+{
+    background: url("/static/img/psc9.png") ; /* 首先增加背景图 */
+    background-size: 100% auto; /* 设置背景的大小 */
+    background-repeat: no-repeat;/* 将背景设置为不重复显示 */
+    background-position: 0px -200px;
+    /*/background-color: rgb(244,246,249);/*/
+}
+#error
+{
+    border: 1px solid blue;
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 15%;
+    background: #00000080;
+    border-radius: 30px; /*/ 框圆角 /*/
+    border-color: rgba(0,153,0,0.0);/*/ 透明 /*/
+    transition-property: all;
+    transition-duration: 1s;
+    padding: 20px 50px;
+}
+/*/ 错误界面边框 /*/
+#error .info
+{
+    color: white;
+    font-size: 30px;
+    font-family: "DFKai-SB";
+}
+/*/ 错误信息 /*/
+#error button
+{
+    border: 0; /* 取消按钮的边界 */
+    width: 90px; /* 设置合适的按钮的长和宽 */
+    height: 30px;
+    transform: translate(-3px,4px);
+    margin-top: 18px; /* 设置合适的上部外框的宽度，增加与上面的password框的距离 */
+    font-size: 18px; /* 修改按钮文字的大小 */
+    font-family: "DFKai-SB";
+    color: white; /* 修改按钮上文字的颜色 */
+    border-radius: 25px; /* 将按钮的左右边框设置为圆弧 */
+    background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+}
+/*/ 错误界面的按钮 /*/
+#main
+{
+    margin-top: 3%;
+}
+/*/ 用户名上外边框 /*/
+#product
+{
+    border: 1px solid blue;
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 5px;
+    background: #00000080;
+    border-radius: 30px; /*/ 框圆角 /*/
+    border-color: rgba(0,153,0,0.0);/*/ 透明 /*/
+    transition-property: all;
+    transition-duration: 1s;
+    padding: 20px 50px;
+}
+/*/ 产品列表边框 /*/
+#main .user .name
+{
+    display: inline-block;
+    font-size: 30px;
+    font-family: "DFKai-SB";
+    color: white;
+    margin: 0 auto;
+    /*/margin-right: 10px;/*/
+    /*/ margin-top: 5%; /*/
+}
+/*/ 用户名 /*/
+#main input[type='submit']
+{
+    border: 0; /* 取消按钮的边界 */
+    width: 70px; /* 设置合适的按钮的长和宽 */
+    height: 30px;
+    transform: translateY(-4px);
+    margin-left: 25px;
+    margin-top: 0px; /* 设置合适的上部外框的宽度，增加与上面的password框的距离 */
+    font-size: 18px; /* 修改按钮文字的大小 */
+    font-family: "DFKai-SB";
+    color: white; /* 修改按钮上文字的颜色 */
+    border-radius: 25px; /* 将按钮的左右边框设置为圆弧 */
+    color: white;
+   /* background-color: #BFBFBF;*/
+    background-image: linear-gradient(to right, #3EA5D1  0%, #EB9491  100%);
+    /* background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%); 为按钮增加渐变颜色 */
+}
+/*/ 登出按钮 /*/
+#product .search .frame
+{
+    margin-left: 38px;
+    width: 200px;
+    height: 25px;
+    border-radius: 42px; /* 将按钮的左右边框设置为圆弧 */
+    background: #F9F0DA;
+    padding-left: 13px;
+}
+/*/ 搜索框 /*/
+#product .search .buttons
+{
+    transform: translate(-40px,-1px);
+    border: 0;
+    background: none;
+}
+/*/ 搜索按钮整体样式 /*/
+#product .search .buttons img
+{
+    height: 20px;
+    width: 20px;
+}
+/*/ 搜索图片调整 /*/
+#product .lists .info img
+{
+    transform: translateY(1.5px);
+    width: 26px;
+    height: 26px;
+}
+.pull-right.pagination-detail
+{
+    display:none;
+}
+.ths
+{
+    font-size: 16px;
+    color: white;
+    font-family: 'DFKai-SB';
+}
+/*/ 列表表头设置 /*/
+.tds
+{
+    color: white;
+}
+/*/ 列表表栏设置 /*/

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{n1}} - 搜索</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/static/css/button.css"/>
+    <link rel="stylesheet" href="/static/css/search.css"/>
+</head>
+<body style="text-align:center;">
+<h1>搜索结果</h1>
+<div id="search">
+        <form action="/index/search">
+            <input type="text" class="frame" required="required" placeholder="按名称搜索" name="search">
+             <button class="button1">
+                 <img src="/static/img/search.svg"/>
+             </button>
+            <button class="button2" onclick="window.location.href = '/index/'">
+                <img src="/static/img/back.svg"/>
+            </button>
+        </form>
+</div>
+<div class="main">
+    <h2>产品列表</h2>
+    {% if cnt == 0 %}
+        <p style="color: white; font-family: 'DFKai-SB'; font-size: 17px; transform: translate(4px,2px);">未找到该产品！</p>
+    {% else %}
+        <form action="#" method="post">
+            {% csrf_token %}
+            <table id="table" data-pagination-detail-h-align="right" data-toggle="table" data-pagination="true" data-pagination-loop="false" data-page-size="7" data-show-pagination-switch="false" data-classes="table">
+                <thead>
+                    <tr>
+                        <th data-halign="center"><input type="checkbox" id="check"></th>
+                        <th data-field="id" data-halign="center" data-sortable="true" class="ths">ID</th>
+                        <th data-field="name" data-halign="center" class="ths">产品名称</th>
+                        <th data-field="info" data-halign="center" class="ths">详情</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in n0 %}
+                        {% for j in n3 %}
+                            {% if j == i.name %}
+                            <tr>
+                                <td><input type="checkbox" name="product" value={{i.id}}></td>
+                                <td class="tds">{{i.id}}</td>
+                                <td class="tds">{{i.name}}</td>
+                                <td class="tds">
+                                    <a class="info" onclick="alert('ID：{{i.id}}\n产品名称：{{i.name}}\n价格：{{i.price}} 元/斤\n备注：{{i.ps}}')">
+                                        <img src="/static/img/info.svg"/>
+                                    </a>
+                                </td>
+                            </tr>
+                            {{ break }}
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div>
+                <button type="button" style="margin-top:20px;" class="btn-gradient purple mini" onclick="window.location.href = '/index/add'">添加产品</button>&nbsp;
+                <input type="submit" class="btn-gradient purple mini" style="margin-left: 30px;" value="删除产品">
+            </div>
+        </form>
+    {% endif %}
+</div>
+</body>
+<script type="text/javascript">
+    if(window.history.replaceState)
+    {
+        window.history.replaceState(null,null,window.location.href);
+    }
+</script>
+<!--防止刷新时显示重复提交表单-->
+<script>
+    document.getElementById("check").onclick = function(){
+        var checked = document.getElementById("check").checked;
+        var checks = document.getElementsByName("product");
+        if(checked){
+            for(var i = 0; i < checks.length ;i++){
+                checks[i].checked = true;
+            }
+        }else{
+            for(var i = 0; i < checks.length ;i++){
+                checks[i].checked = false;
+            }
+        }
+    }
+</script>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap-table.min.js"></script>
+<script src="/static/js/bootstrap-table-zh-CN.min.js"></script>
+</html>
